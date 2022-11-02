@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,9 +15,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
+
 <body>
     <div id="app">
 
@@ -27,9 +30,11 @@
         </main>
 
     </div>
-    
+
     <script src="{{ url('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url('assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url('assets/js/scripts.js') }}"></script>
     @livewireScripts
 </body>
+
 </html>

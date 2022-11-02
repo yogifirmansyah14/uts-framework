@@ -12,14 +12,19 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $count = Post::count();
+        return view('frontend.index', [
+            'post' => Post::orderBy('id', 'DESC')->limit(4)->get(),
+            'jumlah' => $count
+        ]);
     }
 
     public function posts()
     {
         $authors = User::all();
         $categories = Category::all();
-        return view('frontend.posts.index', compact('authors', 'categories'));
+        $lastPost = Post::orderBy('id', 'DESC')->limit(1)->get();
+        return view('frontend.posts.index', compact('authors', 'categories', 'lastPost'));
     }
 
     public function viewpost($post_slug)
@@ -32,9 +37,9 @@ class FrontendController extends Controller
     {
         $user = User::where('name', $author)->first();
         $posts = Post::where('user_id', $user->id)->get();
-        return view('frontend.posts.author', compact('user','posts'));
+        return view('frontend.posts.author', compact('user', 'posts'));
     }
-    
+
     public function category($category_slug)
     {
         $category = Category::where('slug', $category_slug)->first();

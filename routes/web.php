@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/category', App\Http\Livewire\Admin\Category\Index::class);
 
     // Routes Post Controller
-    Route::controller(PostController::class)->group(function(){
+    Route::controller(PostController::class)->group(function () {
         Route::get('/post', 'index');
         Route::get('/post/create', 'create');
         Route::post('/post', 'store');
@@ -47,5 +48,4 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::put('/post/{post_id}', 'update');
         Route::get('/post/{post_id}/delete', 'destroy');
     });
-
 });
