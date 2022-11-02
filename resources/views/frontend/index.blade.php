@@ -7,7 +7,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
                         <h1>Clean Blog</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">Find Your News Here</span>
                     </div>
                 </div>
             </div>
