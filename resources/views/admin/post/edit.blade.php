@@ -7,10 +7,13 @@
             <h3>Edit Article</h3>
         </div>
         <div class="card-body">
-            <form action="{{ url('admin/article/'.$post->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('admin/post/'.$post->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
+                    <!-- Send Category ID -->
+                        <input type="hidden" name="category_id" value="{{ $post->category->id }}">
+                    <!--  -->
                     <div class="col-md-12 mb-3">
                         <label class="mb-1 fw-bold">Image</label>
                         <input type="file" class="form-control" name="image">

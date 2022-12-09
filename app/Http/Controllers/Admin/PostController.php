@@ -82,12 +82,14 @@ class PostController extends Controller
 
     public function update(Request $request, int $post_id)
     {
+        
         $rules = [
             'title' => 'required|max:255',
             'image' => 'nullable|image|mimes:png,jpg,jpeg',
             'category_id' => 'required',
             'body' => 'required',
         ];
+        
 
         $post = Category::findOrFail($request->category_id)->posts()->where('id', $post_id)->first();
 
