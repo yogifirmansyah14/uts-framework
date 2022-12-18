@@ -54,7 +54,8 @@
         @forelse ($posts->skip(1) as $post)
             <div class="col-md-4 mb-3">
                 <div class="card" style="width: 22rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{ asset($post->image) }}" class="card-img-top" style="height: 15rem; object-fit: cover"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <p class="card-text">{{ $post->excerpt }}</p>

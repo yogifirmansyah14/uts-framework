@@ -21,35 +21,34 @@
             </div>
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-4 mb-3">
-                @foreach ($post as $post)
-                    <div class="col-md-4 mb-3">
-                        <div class="card" style="width: 22rem;">
-                            <img src="{{ asset($post->image) }}" style="height: 15rem; object-fit: cover"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $post->title }}</h5>
-                                <p class="card-text">{{ $post->excerpt }}</p>
-                                <small>Author by <a href="{{ url('posts/author/' . $post->user->name) }}"
-                                        class="text-decoration-none">{{ $post->user->name }}</a> in <a
-                                        href="{{ url('posts/category/' . $post->category->slug) }}"
-                                        class="text-decoration-none">{{ $post->category->name }}</a> Category</small>
-                                <p class="card-text"><small class="text-muted">Published at
-                                        {{ $post->created_at->diffForHumans() }}</small></p>
-                                <a href="{{ url('/posts/' . $post->slug) }}" class="btn btn-primary">Read More</a>
-                            </div>
+            @foreach ($post as $post)
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="width: 22rem; height: 30rem;">
+                        <img src="{{ asset($post->image) }}" style="height: 15rem; object-fit: cover" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <p class="card-text">{{ $post->excerpt }}</p>
+                            <small>Author by <a href="{{ url('posts/author/' . $post->user->name) }}"
+                                    class="text-decoration-none">{{ $post->user->name }}</a> in <a
+                                    href="{{ url('posts/category/' . $post->category->slug) }}"
+                                    class="text-decoration-none">{{ $post->category->name }}</a> Category</small>
+                            <p class="card-text"><small class="text-muted">Published at
+                                    {{ $post->created_at->diffForHumans() }}</small></p>
+                            <a href="{{ url('/posts/' . $post->slug) }}" class="btn btn-primary">Read
+                                More</a>
                         </div>
                     </div>
-                @endforeach
-                <!-- Pager-->
-                @if ($jumlah >= 4)
-                    <div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase"
-                            href="{{ url('/posts') }}">Older
-                            Posts →</a></div>
-                @else
-                    <div class="container"></div>
-                @endif
-            </div>
+                </div>
+            @endforeach
+            <!-- Pager-->
+            @if ($jumlah >= 4)
+                <div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase"
+                        href="{{ url('/posts') }}">Older
+                        Posts →</a></div>
+            @else
+                <div class="container"></div>
+            @endif
         </div>
     </div>
 @endsection
